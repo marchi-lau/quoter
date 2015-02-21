@@ -19,18 +19,14 @@ module AASTOCKS
       quote = Nokogiri::HTML(open(url)).children.text.split(";")
       price_now = quote[3]
       timestamp = Chronic.parse(quote[21])
-      puts "======================================"
-      puts "From aastock"
       puts quote[2]
       puts price_now
       puts timestamp
-      puts "======================================"
       return price_now
     end
   end
 end
 end
-
 
 get '/quote/*' do
   # matches /say/hello/to/world
